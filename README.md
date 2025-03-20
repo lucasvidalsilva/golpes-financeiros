@@ -45,10 +45,10 @@ Este projeto visa analisar dados de golpes financeiros coletados via Google Shee
 1️⃣ **Rodar a extração e carga de dados:**  
 python extract_load.py
 
-2️⃣ **Rodar a extração e carga de dados:**  
-python extract_load.py
+2️⃣ **Executar os modelos DBT:**  
+dbt run
 
-3️⃣ **Gerar a documentação interativa:**
+3️⃣ **Gerar a documentação interativa:**  
 dbt docs generate
 dbt docs serve
 
