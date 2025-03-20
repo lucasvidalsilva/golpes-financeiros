@@ -25,6 +25,8 @@ def extrair_sheets():
     dados = worksheet.get_all_values()
 
     df = pd.DataFrame(dados[1:], columns=dados[0])
+    df.columns = df.columns.str.strip()
+
     return df
 
 def load_sheets_bd(df, schema='public'):

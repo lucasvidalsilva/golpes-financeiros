@@ -1,0 +1,141 @@
+version: 2
+
+sources:
+  - name: postgres
+    schema: public
+    tables: 
+      - name: bronze_golpes_financeiros
+        description: "Tabela bruta, com os mesmos dados da tabela origem do forms. Sem nenhum tratamento"
+        columns:
+          - name: "Carimbo de data/hora"
+            description: "Data e hora do registro da resposta"
+          - name: "Faixa etária:"
+            description: "Faixa etária do participante"
+          - name: "Situação profissional:"
+            description: "Situação profissional do participante"
+          - name: "Nível de escolaridade:"
+            description: "Nível de escolaridade do participante"
+          - name: "Área de residência:"
+            description: "Área de residência do participante"
+          - name: "Possui filhos?"
+            description: "Indica se o participante tem filhos"
+          - name: "Quantas contas bancárias você possui?"
+            description: "Quantidade de contas bancárias que o participante possui"
+          - name: "Principal meio de uso bancário (Pode marcar mais de uma opçã"
+            description: "Principal meio utilizado pelo participante para operações bancárias"
+          - name: "Como você costuma se informar sobre finanças e segurança dig"
+            description: "Meios utilizados pelo participante para se informar sobre finanças e segurança digital"
+          - name: "Qual sua familiaridade com o uso de tecnologia e internet?"
+            description: "Familiaridade do participante com o uso de tecnologia e internet"
+          - name: "Você já foi vítima de algum golpe financeiro?"
+            description: "Indica se o participante já foi vítima de algum golpe financeiro"
+          - name: "Se sim, qual foi o tipo de fraude? (Pode marcar mais de uma op"
+            description: "Tipos de fraudes sofridas pelo participante"
+          - name: "Se foi vítima, qual foi a faixa de perda financeira?"
+            description: "Faixa de perda financeira caso o participante tenha sido vítima de um golpe"
+          - name: "Você conhece alguém próximo (amigo, familiar, colega) que j"
+            description: "Indica se o participante conhece alguém que já sofreu um golpe financeiro"
+          - name: "Na sua opinião, qual o principal motivo pelo qual as pessoas c"
+            description: "Opinião do participante sobre os principais motivos pelos quais as pessoas caem em golpes"
+          - name: "Após sofrer ou conhecer alguém que sofreu um golpe, você mud"
+            description: "Mudanças nos hábitos financeiros do participante após sofrer ou conhecer alguém que sofreu um golpe"
+          - name: "Quais medidas de segurança você já adota para evitar fraudes"
+            description: "Medidas de segurança já adotadas pelo participante para evitar fraudes"
+          - name: "Você já denunciou algum golpe financeiro às autoridades ou a"
+            description: "Indica se o participante denunciou golpes financeiros às autoridades ou ao banco"
+          - name: "Com que frequência você verifica seu extrato bancário e tran"
+            description: "Frequência com que o participante verifica seu extrato bancário e transações"
+          - name: "Você já recebeu mensagens ou ligações suspeitas pedindo dad"
+            description: "Indica se o participante já recebeu mensagens ou ligações suspeitas pedindo dados"
+          - name: "Você sabe identificar sinais de golpe financeiro em e-mails, m"
+            description: "Capacidade do participante de identificar sinais de golpe financeiro em e-mails, mensagens e ligações"
+          - name: "Se recebeu mensagens ou ligações suspeitas, qual foi sua rea"
+            description: "Reação do participante ao receber mensagens ou ligações suspeitas"
+          - name: "Com que frequência você altera suas senhas bancárias e de ap"
+            description: "Frequência com que o participante altera suas senhas bancárias e de aplicativos financeiros"
+          - name: "Você costuma compartilhar informações sobre golpes financeir"
+            description: "Frequência com que o participante compartilha informações sobre golpes financeiros"
+          - name: "Na sua opinião, o que poderia reduzir o número de fraudes fin"
+            description: "Opinião do participante sobre medidas que poderiam reduzir o número de fraudes financeiras"
+          - name: "Você estaria interessado em participar de cursos ou workshops "
+            description: "Indica se o participante estaria interessado em participar de cursos ou workshops sobre segurança financeira"
+
+      - name: silver_golpes_financeiros
+        description: "Tabela com os dados normalizados e colunas padronizadas do tema golpesfinanceiros"
+        columns:
+          - name: faixa_etaria
+            description: "Faixa etária do participante"
+          - name: sit_profissional
+            description: "Status de emprego do participante"
+          - name: nivel_escolar
+            description: "Nível de escolaridade do participante"
+          - name: area_residencia
+            description: "Local de residência do participante"
+          - name: filhos?
+            description: "Indica se o participante tem filhos"
+          - name: qtd_contasbancarias
+            description: "Número de contas bancárias que o participante possui"
+          - name: meio_banco
+            description: "Principal meio utilizado para transações bancárias"
+          - name: info_financ_seg
+            description: "Fontes de informação utilizadas pelo participante para finanças e segurança digital"
+          - name: afinidade_tec
+            description: "Nível de familiaridade do participante com tecnologia e internet"
+          - name: vitima_golpe
+            description: "Indica se o participante já sofreu um golpe financeiro"
+          - name: tipo_golpe
+            description: "Tipos de fraude financeira que o participante já sofreu"
+          - name: perda_golpe
+            description: "Faixa de valor financeiro perdido em golpes"
+          - name: conhece_vitima
+            description: "Indica se o participante conhece alguém que já sofreu golpe financeiro"
+          - name: motivo_cair_golpe
+            description: "Opinião do participante sobre os principais fatores que levam pessoas a cair em golpes"
+          - name: mudou_seg_financ
+            description: "Se o participante alterou seus hábitos de segurança após contato com golpes financeiros"
+          - name: medidas_seg
+            description: "Medidas de segurança praticadas pelo participante para evitar fraudes"
+          - name: denunciou_golpe
+            description: "Indica se o participante já fez denúncias sobre golpes financeiros"
+          - name: verifica_extrato
+            description: "Frequência com que o participante monitora suas finanças"
+          - name: ligacao_suspeita
+            description: "Indica se o participante já recebeu contatos suspeitos solicitando informações financeiras"
+          - name: email_sinal_golpe
+            description: "Capacidade do participante em reconhecer tentativas de golpe financeiro"
+          - name: reacao_golpe_lig
+            description: "Resposta do participante ao receber contatos suspeitos"
+          - name: troca_senha
+            description: "Frequência de troca de senhas bancárias e de aplicativos financeiros"
+          - name: compartilha_info_seg
+            description: "Se o participante alerta outras pessoas sobre golpes financeiros"
+          - name: reduzir_golpe
+            description: "Sugestões do participante para reduzir fraudes financeiras"
+          - name: interesse_curso
+            description: "Interesse do participante em aprender mais sobre segurança financeira"
+
+      - name: gold_golpes_financeiros
+        description: "Tabela com as metricas sobre o estudo dos goles financeiros"
+        columns:
+          - name: perc_vitima_golpe
+            description: "Percentual de participantes que já foram vítimas de golpes financeiros"
+          - name: perc_conhece_vitima
+            description: "Percentual de participantes que conhecem alguém que já sofreu um golpe financeiro"
+          - name: golpe_mais_comum
+            description: "Tipo de golpe financeiro mais comum entre os participantes"
+          - name: perda_golpe
+            description: "Faixa de valor financeiro perdido por vítimas de golpes"
+          - name: perc_perda_golpe
+            description: "Percentual de participantes que perderam dinheiro em golpes financeiros"
+          - name: motivo_cair_golpe
+            description: "Opinião dos participantes sobre os principais motivos que levam pessoas a cair em golpes"
+          - name: perc_motivo_golpe
+            description: "Percentual de participantes que apontaram um motivo específico para cair em golpes"
+          - name: denunciou_golpe
+            description: "Indica se o participante denunciou golpes financeiros às autoridades ou ao banco"
+          - name: perc_denuncia_golpe
+            description: "Percentual de participantes que denunciaram golpes financeiros"
+          - name: interesse_curso
+            description: "Indica se o participante tem interesse em participar de cursos ou workshops sobre segurança financeira"
+          - name: perc_interesse_curso
+            description: "Percentual de participantes interessados em cursos sobre segurança financeira"
