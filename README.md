@@ -3,6 +3,21 @@
 ## 📖 Visão Geral  
 Este projeto visa analisar dados de golpes financeiros coletados via Google Sheets, transformando-os em insights valiosos por meio do **DBT (Data Build Tool)**. Os dados são extraídos, carregados em um **PostgreSQL** e transformados para facilitar a análise.  
 
+```mermaid
+graph TD;
+    A[Google Sheets] -->|Extrai dados| B[bronze_golpes_financeiros]
+    B -->|Transforma e Limpa| C[silver_golpes_financeiros]
+    C -->|Gera Métricas| D[metricas]
+    D -->|Exporta para Análises| E[BI/Dashboard]
+
+    subgraph ETL Pipeline
+        A
+        B
+        C
+        D
+    end
+```
+
 ---
 
 ## 🏗️ Arquitetura  
